@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sleep 3
+
 GRAYLOG2_URL="http://127.0.0.1:12900"
 
 GRAYLOG2_INPUT_GELF_TCP='
