@@ -1,0 +1,38 @@
+#!/bin/bash
+
+GRAYLOG2_URL="http://127.0.0.1:12900"
+
+GRAYLOG2_INPUT_GELF_TCP='
+{
+      "title": "Gelf TCP",
+      "configuration": {
+        "port": 12201,
+        "bind_address": "0.0.0.0"
+      },
+      "creator_user_id": "admin",
+      "type": "org.graylog2.inputs.gelf.tcp.GELFTCPInput"
+}'
+
+GRAYLOG2_INPUT_GELF_UDP='
+{
+      "title": "Gelf UDP",
+      "configuration": {
+        "port": 12201,
+        "bind_address": "0.0.0.0"
+      },
+      "creator_user_id": "admin",
+      "type": "org.graylog2.inputs.gelf.udp.GELFUDPInput"
+}'
+
+
+INPUTS=$(curl -X GET -H "Content-Type: application/json" ${GRAYLOG2_URL}/system/inputs 2>/dev/null)
+
+if [ $(echo $INPUTS | grep -c "GELF TCP") != "1" ]; then
+	curl -X POST -H "Content-Type: application/json" -d "${GRAYLOG2_INPUT_GELF_TCP}" ${GRAYLOG2_URL}/system/inputs > /dev/null
+fi
+
+if [ $(echo $INPUTS | grep -c "GELF UDP") != "1" ]; then
+	curl -X POST -H "Content-Type: application/json" -d "${GRAYLOG2_INPUT_GELF_UDP}" ${GRAYLOG2_URL}/system/inputs > /dev/null
+fi
+
+exit 0
