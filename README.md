@@ -11,3 +11,11 @@ Graylog2 0.20 preview Vagrant Box for easy testing
    * Username: admin
    * Password: yourpassword
  * cronjob runs every minute to push sample data into Graylog2
+
+Contact?
+--------------
+
+Jonas Genannt @hggh / jonas@brachium-system.net
+
+IRC:
+freenode/#graylog2
