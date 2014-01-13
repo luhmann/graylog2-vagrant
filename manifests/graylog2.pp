@@ -40,7 +40,7 @@ class { 'elasticsearch':
       'name'             => 'graylog2'
     }
   },
-  package_url => 'https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.7.deb',
+  package_url => 'https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.10.deb',
   require     => Package["openjdk-7-jre-headless"],
 }
 
