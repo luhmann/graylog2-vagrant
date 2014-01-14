@@ -6,6 +6,7 @@ GRAYLOG2_URL="http://admin:yourpassword@127.0.0.1:12900"
 
 GRAYLOG2_INPUT_GELF_TCP='
 {
+      "global": "true",
       "title": "Gelf TCP",
       "configuration": {
         "port": 12201,
@@ -17,6 +18,7 @@ GRAYLOG2_INPUT_GELF_TCP='
 
 GRAYLOG2_INPUT_GELF_UDP='
 {
+      "global": "true",
       "title": "Gelf UDP",
       "configuration": {
         "port": 12201,
