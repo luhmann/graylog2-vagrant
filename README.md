@@ -12,6 +12,12 @@ Graylog2 0.20 RC1-1 Vagrant Box for easy testing
    * Password: yourpassword
  * cronjob runs every minute to push sample data into Graylog2
 
+
+Debian Packages
+=========================
+
+Please see https://gist.github.com/hggh/7492598 for the Debian packages, if you want to use it without the Vagrant Box.
+
 Contact?
 --------------
 
