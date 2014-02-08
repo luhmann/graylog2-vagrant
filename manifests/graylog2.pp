@@ -54,13 +54,14 @@ class { 'graylog2':
 }
 
 
-package { [ "ruby-gelf", "curl", "vim", "python-argparse", "python-dateutil", "python-setuptools"]:
+package { [ "ruby-gelf", "curl", "vim", "python-argparse", "python-dateutil", "python-setuptools", "git"]:
   ensure => latest,
 }
 
 exec { "python install graypy":
     command => "easy_install graypy",
-    path    => "/usr/local/bin/:/bin/",
+    path    => "/usr/local/bin/:/bin/:/usr/sbin/:/usr/bin",
+    user => "root"
 }
 
 # Login: http://localhost:9000
