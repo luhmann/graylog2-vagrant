@@ -53,8 +53,14 @@ class { 'graylog2':
   require                     => [ Class['mongodb'], Class['elasticsearch'] ],
 }
 
-package { [ "ruby-gelf", "curl"]:
+
+package { [ "ruby-gelf", "curl", "vim", "python-argparse", "python-dateutil", "python-setuptools"]:
   ensure => latest,
+}
+
+exec { "python install graypy":
+    command => "easy_install graypy",
+    path    => "/usr/local/bin/:/bin/",
 }
 
 # Login: http://localhost:9000
