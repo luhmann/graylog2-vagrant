@@ -54,12 +54,18 @@ class { 'graylog2':
 }
 
 
-package { [ "ruby-gelf", "curl", "vim", "python-argparse", "python-dateutil", "python-setuptools", "git"]:
+package { [ "ruby-gelf", "curl", "vim", "python-argparse", "python-dateutil", "python-setuptools", "git", "python-pip"]:
   ensure => latest,
 }
 
 exec { "python install graypy":
     command => "easy_install graypy",
+    path    => "/usr/local/bin/:/bin/:/usr/sbin/:/usr/bin",
+    user => "root"
+}
+
+exec { "python install user_agents":
+    command => "pip install pyyaml ua-parser user-agents",
     path    => "/usr/local/bin/:/bin/:/usr/sbin/:/usr/bin",
     user => "root"
 }
