@@ -7,4 +7,7 @@ class graylog2::packages {
     ensure => latest,
     notify => Service["graylog2-web"],
   }
+  package { 'graylog2-stream-dashboard':
+    ensure => latest,
+  }
 }

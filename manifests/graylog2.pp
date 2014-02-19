@@ -13,6 +13,27 @@ class { "apt_update":
   stage   => first,
 }
 
+# Graylog2 Dashboard
+package { 'apache2':
+  ensure => present,
+  notify => Service['apache2'],
+}
+
+service { 'apache2':
+  ensure  => running,
+  require => Package['apache2'],
+}
+
+file { '/var/www':
+  ensure => directory,
+  owner  => 'root',
+  group  => 'root',
+}
+
+file { '/var/www/graylog2-stream-dashboard':
+  ensure => link,
+  target => '/usr/share/graylog2-stream-dashboard',
+}
 
 class { 'mongodb':
   enable_10gen => true,

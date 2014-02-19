@@ -13,6 +13,18 @@ Graylog2 0.20 RC3 Vagrant Box for easy testing
  * cronjob runs every minute to push sample data into Graylog2
 
 
+Graylog2 Stream Dashboard
+------------------------------
+
+Access the new Graylog2 Stream Dashboard:
+
+http://127.0.0.1:8080/graylog2-stream-dashboard
+
+Graylog2 Server address: http://127.0.0.1:12900
+
+For more information and limitations of the Dashboard: https://github.com/Graylog2/graylog2-stream-dashboard
+
+
 Debian Packages
 =========================
 
