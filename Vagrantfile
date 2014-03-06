@@ -6,7 +6,11 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "graylog2"
-  config.vm.box_url = "https://www.dropbox.com/s/23gupgb0xompvkm/Wheezy64.box?dl=1"
+  config.vm.box_url = "http://vagrantboxes.footballradar.com/wheezy64.box"
+
+  config.vm.provider "virtualbox" do |v|
+    v.memory = 1024
+  end
 
   config.vm.provision :puppet do |puppet|
     puppet.manifest_file = "graylog2.pp"
@@ -14,6 +18,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.network :forwarded_port, guest: 9000, host: 9000
-  config.vm.network :forwarded_port, guest: 12201, host: 12201
+  config.vm.network :forwarded_port, guest: 80, host: 8080
+  config.vm.network :forwarded_port, guest: 12201, host: 12201, protocol: 'udp'
+  config.vm.network :forwarded_port, guest: 12201, host: 12201, protocol: 'tcp'
+  config.vm.network :forwarded_port, guest: 12900, host: 12900
 
 end
